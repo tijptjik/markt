@@ -8,22 +8,33 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-
-  <main class="row align-center align-middle">
+    <main class="row align-center align-middle">
     <div class="columns log-in-form medium-4 text-center">
       <form>
-          <h3>HOLIDAY SPECIAL</h3>
-            <input name='email' type="email" placeholder="Email Address">
-            <input name='password' type="password" placeholder="Password">
-            <a type="submit" class="button expanded">Play Markt</a>
+        <h3>HOLIDAY SPECIAL</h3>
+        <input name='email' type="email" placeholder="Email Address">
+        <input name='password' type="password" placeholder="Password">
+        <a class="button expanded submit">Play Markt</a>
       </form>
+      <div class="alert error callout" data-closable="fade-out">
+        <button class="close-button" data-close>&times;</button>
+        <h5>whoo there! hold on.</h5>
+        <p class="msg">But when you're done reading it, click the close button in the corner to dismiss this al class=ert.</p>
+      </div>
     </div>
-  </main>
+    <div id="markt">
+      <div class="row text-center">
+        <div class="columns medium-6">Hello</div>
+        <div class="columns medium-6">World</div>
+      </div>
+    </div>
 
-
+    <div id="placebet"></div>
+    </main>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/what-input/what-input.js"></script>
+    <script src="bower_components/foundation-sites/dist/foundation.js"></script>
     <script src="bower_components/foundation-sites/dist/foundation.js"></script>
     <script src="js/app.js"></script>
   </body>

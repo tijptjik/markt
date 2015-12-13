@@ -3,6 +3,7 @@
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
+@import '_foundation-icons';
 
 @include foundation-global-styles;
 // @include foundation-grid;
@@ -44,8 +45,12 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
+$header-color: #fc6e51;
+$bg-color: #fff;
+$font: #888;
 
 body {
+	font-family: 'Source Sans Pro', sans-serif;
 	background-image: url('../images/paul.jpg');
 	background-size: cover;
 }
@@ -55,9 +60,151 @@ main {
 	width: 100%;
 }
 
+#markt {
+	display: none;
+}
+
 .log-in-form {
   border: 1px solid #cacaca;
   padding: 1rem;
   border-radius: 3px;
   background: white;
 }
+
+.error {
+	display: none;
+}
+
+// Utiltiy Classes
+
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+   padding:0;
+}
+
+
+// Menu Bar
+
+//
+.fixed-bottom {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: $bg-color;
+	border-top: 1px solid gainsboro;
+}
+
+.menu > li:not(.menu-text) {
+	border-right: 1px solid gainsboro;
+	&:last-child {
+		border-right: none;
+	}
+	> a {
+	padding: 0.5rem 0;
+	color: $font;
+		i {
+			font-size: 24px;
+		}
+		span {
+			color: #969696;
+			font-size: 12px;
+		}
+		&:hover {
+			background-color: #ccc;
+		}
+	}
+}
+
+// List View
+
+.dashboard {
+  border: 1px solid #eee;
+  box-shadow: 0 2px 0 rgba(204,204,204,.15);
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  background: $bg-color;
+  position: relative;
+  
+  header {
+    background: $header-color;
+    height: 6.2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 6.2rem;
+    padding: 0 1.25rem;
+    overflow: hidden;
+    position: relative;
+    
+    h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: bold;
+      -webkit-margin-before: 0.83em;
+      -webkit-margin-after: 0.83em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+    }
+  }
+  
+  .graph-trend {
+    position: absolute;
+    right: 1.25rem;
+    top: 2.2rem;
+    font-size: 1.7rem;
+    line-height: 1em;
+  }
+  
+  .graph-trend-shadow {
+    position: absolute;
+    color: rgba(0,0,0,0.05);
+    font-size: 8rem;
+    top: -1.25rem; 
+    right: -1.25rem;
+    transform: rotate( -20deg );
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .prediction {
+    padding: 1.25rem 1.9rem;
+    border-bottom: 1px solid #f2f2f2;
+    color: $font;
+    overflow: hidden;
+    &:last-child {
+      border-bottom: none;
+    }
+    .image {
+      display: block;
+      float: left;
+      margin-right: 0.75rem;
+    }
+
+    .prediction-title {
+      text-transform: uppercase;
+      color: scale-color($font, $lightness: -25%);
+      font-weight: 600;
+    }
+    
+    .prediction-rate {
+      margin-top: -0.7rem;
+      color: scale-color($font, $lightness: -25%);
+      font-size: 1.25rem;
+      .column {
+      	padding: 2px;
+      }
+      h4 {
+      	text-align: center;
+      }
+    }
+  }  
+}
+

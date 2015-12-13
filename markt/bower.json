@@ -13,7 +13,8 @@
     "motion-ui": "~1.1.0",
     "firebase": "~2.3.2",
     "gulp": "~3.9.0",
-    "foundation-icon-fonts": "*"
+    "foundation-icon-fonts": "*",
+    "jsanimatedmodal": "~0.1.5"
   },
   "ignore": [
     "**/.*",

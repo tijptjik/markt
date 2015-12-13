@@ -11,35 +11,35 @@
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
-@include foundation-visibility-classes;
+// @include foundation-visibility-classes;
 @include foundation-float-classes;
-@include foundation-accordion;
-@include foundation-accordion-menu;
-@include foundation-badge;
-@include foundation-breadcrumbs;
-@include foundation-button-group;
+// @include foundation-accordion;
+// @include foundation-accordion-menu;
+// @include foundation-badge;
+// @include foundation-breadcrumbs;
+// @include foundation-button-group;
 @include foundation-callout;
 @include foundation-close-button;
-@include foundation-drilldown-menu;
+// @include foundation-drilldown-menu;
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
-@include foundation-flex-video;
+// @include foundation-flex-video;
 @include foundation-label;
-@include foundation-media-object;
+// @include foundation-media-object;
 @include foundation-menu;
-@include foundation-off-canvas;
-@include foundation-orbit;
-@include foundation-pagination;
-@include foundation-progress-bar;
+// @include foundation-off-canvas;
+// @include foundation-orbit;
+// @include foundation-pagination;
+// @include foundation-progress-bar;
 @include foundation-slider;
-@include foundation-sticky;
-@include foundation-reveal;
+// @include foundation-sticky;
+// @include foundation-reveal;
 @include foundation-switch;
-@include foundation-table;
-@include foundation-tabs;
-@include foundation-thumbnail;
+// @include foundation-table;
+// @include foundation-tabs;
+// @include foundation-thumbnail;
 @include foundation-title-bar;
-@include foundation-tooltip;
+// @include foundation-tooltip;
 @include foundation-top-bar;
 
 @include motion-ui-transitions;
@@ -49,10 +49,19 @@ $header-color: #fc6e51;
 $bg-color: #fff;
 $font: #888;
 
+$body-font-family : 'Source Sans Pro', sans-serif;
+$header-font-family : $body-font-family;
+
 body {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: $body-font-family;
 	background-image: url('../images/paul.jpg');
 	background-size: cover;
+	background-repeat: none;
+	background-position: center;
+}
+
+h1, h2,h3,h4 {
+	font-family: $body-font-family;
 }
 
 main {
@@ -118,17 +127,9 @@ main {
 	}
 }
 
-// List View
+// Header 
 
-.dashboard {
-  border: 1px solid #eee;
-  box-shadow: 0 2px 0 rgba(204,204,204,.15);
-  margin-bottom: 1rem;
-  border-radius: 0.25rem;
-  background: $bg-color;
-  position: relative;
-  
-  header {
+header {
     background: $header-color;
     height: 6.2rem;
     font-size: 1.25rem;
@@ -150,6 +151,21 @@ main {
       -webkit-margin-end: 0px;
     }
   }
+
+// List View
+
+.dashboard, .predict, .ledger, .profile {
+  border: 1px solid #eee;
+  box-shadow: 0 2px 0 rgba(204,204,204,.15);
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  background: $bg-color;
+  position: relative;
+
+	article {
+		margin-bottom: 50px;
+	}  
+  
   
   .graph-trend {
     position: absolute;
@@ -172,6 +188,7 @@ main {
     margin: 0;
     padding: 0;
     list-style: none;
+    overflow: hidden;
   }
   
   .prediction {
@@ -188,14 +205,15 @@ main {
       margin-right: 0.75rem;
     }
 
-    .prediction-title {
+    .prediction-title, .prediction-rate  {
       text-transform: uppercase;
       color: scale-color($font, $lightness: -25%);
       font-weight: 600;
+      font-size: 16px;
     }
     
     .prediction-rate {
-      margin-top: -0.7rem;
+      // margin-top: -0.7rem;
       color: scale-color($font, $lightness: -25%);
       font-size: 1.25rem;
       .column {
@@ -208,3 +226,169 @@ main {
   }  
 }
 
+// Predict
+
+.predict .row {
+	margin-top: 6px;
+    border-bottom: 1px solid #cdc;
+    &.textarea{
+    	height: 135px;
+    }
+    p {
+    	color: #333;
+    }
+}
+
+header.tiny {
+	height: 3rem;
+	h2 {
+		display: block;
+		margin-top: 4px;
+	}
+	.graph-trend {
+		top: 12px;
+	}
+}
+
+.predict h2:not(.header) {
+	text-transform: uppercase;
+    color: #666666;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+h2:not(.header), h2 + label{
+	display: inline;
+	line-height: 32px;
+    vertical-align: text-bottom;
+    padding-right: 6px;
+    border-right: 1px solid #ccc;
+}
+    h2 + label{
+ 	   vertical-align: top;
+ 	   padding-left: 6px;
+ 	   border-right: none;
+    }
+h2 + label{
+	color: #777;
+}
+
+
+#sliderOutput1 {
+	display: inline-block;
+    width: 43px;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+}
+
+// Ledger 
+.ledger .prediction-rate .prediction-title {
+	font-size: 18px;
+}
+
+.ledger .prediction-rate {
+    background: aliceblue;
+    padding: 6px;
+    .row {
+    	margin: 0;
+    }
+}
+
+.ledger .prediction-rate h4 {
+    border-bottom: 4px solid #367;
+    &.yes {
+    	border-bottom-color: #2199E8;
+    }
+    &.no {
+    	border-bottom-color: #FC6E51;
+    }
+    &.no-outbid {
+    	border-bottom-color: #EF0D41;
+    }
+    &.yes-outbid {
+    	border-bottom-color: #1EDA3E;
+    }
+}
+.ledger .prediction-rate p{
+	text-align: center;
+    font-size: 0.7rem;
+    margin: 0;
+}
+.ledger .prediction-rate a {
+    margin: 0;
+	}
+
+
+// Modal
+
+#animatedModal {
+	background-color: rgba(33, 33, 33, 0.9) !important;
+	color: white;
+	.close-animatedModal {
+	    position: absolute;
+	    top:0;
+	    right: 0;
+    	padding: 16px;
+	}
+	.modal-content {
+		overflow: scroll;
+    	height: 100%;
+    	p {
+    		padding: 6px;
+    	}
+	}
+	h2 {
+		line-height: 32px;
+		font-size: 24px;
+		font-weight: 700;
+	}
+	h2,h4{
+		background-color: #2199e8;
+    	padding: 12px;
+    	text-transform: uppercase;
+
+	}
+	h4.summary {
+		margin-bottom: 0;
+	}
+	.summary {
+		.columns {
+    		padding: 8px;
+			&.small-4 {
+				background-color: rgba(72, 72, 72, 0.72);
+	    		border-right: 1px solid black;
+	    		span {
+	    			font-weight: 700;
+	    		}
+			}
+			&.small-12 {
+				background-color: #E91E63;
+			}
+		}
+		i {
+			font-size: 20px;
+			line-height: 24px;
+    		text-decoration: underline;
+		}
+		margin-bottom: 69px;
+	}
+	footer .row {
+		padding-top: 12px;
+	}
+	
+}
+
+
+// Switch Paddel
+
+.switch-paddle {
+	background-color: #FC6E51;
+}
+
+// Forms
+
+textarea {
+	height: initial;
+}

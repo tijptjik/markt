@@ -152,7 +152,7 @@
 						</a>
 					</li>
 					<li class="column small-3 fullWidth">
-						<a href="ledger.html" class="">
+						<a href="portfolio.html" class="">
 							<i class="fi-book"></i>
 							<span>Portfolio</span>
 						</a>
@@ -167,11 +167,18 @@
 			</nav>
 		</footer>
 		<script src="bower_components/jquery/dist/jquery.js"></script>
-		<script src="bower_components/jsanimatedmodal/animatedModal.js"></script>
 		<script src="bower_components/firebase/firebase.js"></script>
 		<script src="bower_components/what-input/what-input.js"></script>
 		<script src="bower_components/foundation-sites/dist/foundation.js"></script>
+		<script src="js/animatedModal.min.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/markt.js"></script>
+		<script type="text/javascript">
+			$(".button-modal").animatedModal({
+				"animatedIn" : 'fadeInDownBig',
+				"animatedOut" : 'fadeOutUp',
+			});
+
+		</script>
 	</body>
 </html>

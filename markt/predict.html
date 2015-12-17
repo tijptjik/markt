@@ -21,24 +21,23 @@
 							<span class="fi-target"></span>
 						</div>
 					</header>
-
 					<article>
-					
+						
 						<div class="row align-center textarea">
 							<div class="columns small-11">
 								<h2>Prediction</h2>
 								<label>
-								  What are you predicting for 2016? 
-								  <textarea placeholder="I.e. Hang Seng Index will reach 25,000 points"></textarea>
-								</label>		
+									What are you predicting for 2016?
+									<textarea name="prediction" placeholder="I.e. Hang Seng Index will reach 25,000 points"></textarea>
+								</label>
 							</div>
 						</div>
 						<div class="row align-center textarea">
 							<div class="columns small-11">
 								<h2>Conditions</h2>
 								<label>
-								  How will we verify your claim?
-								  <textarea placeholder=" I.e. Highest daily 'High' reported in the SCMP."></textarea>
+									How will we verify your claim?
+									<textarea name="condition" placeholder=" I.e. Highest daily 'High' reported in the SCMP."></textarea>
 								</label>
 							</div>
 						</div>
@@ -47,55 +46,20 @@
 								<h2>Place Bet</h2>
 								<label>By moving the slider</label>
 								<p>I'll bet $<input id="sliderOutput1"> to receive $100 <i>if</i> this happens.</p>
-							<div class="small-12 columns">
-							  <div class="slider" data-slider data-initial-start="50" data-options="step: 20;">
-							    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
-							    <span class="slider-fill" data-slider-fill></span>
-							  </div>
+								<div class="small-12 columns">
+									<div class="slider" data-slider data-initial-start="50" data-options="step: 20;">
+										<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+										<span class="slider-fill" data-slider-fill></span>
+									</div>
+								</div>
 							</div>
-						</div>
-
-						<a href="" class="small-10 button expanded">SUBMIT</a>	
+							<a href="" class="small-10 submit button expanded">SUBMIT</a>
 						</div>
 						
 					</article>
 				</div>
 			</div>
 		</div>
-
-
-		<div id="animatedModal" class="text-center">
-			<!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-			<div class="close-animatedModal right">
-				<i class="fi-x"></i>
-			</div>
-			<div class="modal-content">
-			<h2>Prediction</h2>
-			<p>Another passenger plane goes missing without a trace for at least 30 days.</p>
-			<h4>Condition</h4>
-			<p>30 Days after the crash there are still newspapers which run articles wondering what happened to the crashed flight. Supposed parts don't don't dispute this claim. They need to have been verified to dispell the mystery.</p>
-			<h4 class="summary">Contract</h4>
-			<div class="row summary align-center small-stack align-middle">
-				<div class="columns small-4 medium-6 large-expand"> <span>with</span><br> @tijptjik</div>
-				<div class="columns small-4 medium-6 large-expand"> <span>buy-in</span><br>$86</div>
-				<div class="columns small-4 medium-6 large-expand"> <span>pay out</span><br>$100</div>
-				<div class="columns small-12 medium-6 large-expand"> <span>your verdict</span><br> This <i>will</i> happen in 2016.</div>
-			</div>
-			</div>
-			<footer class="fixed-bottom">
-				<div class="row">
-					<div class="columns small-6">
-						<a href="" class="button expanded button-primary">Lower Bid</a>
-					</div>
-					<div class="columns small-6">
-						<a href="" class="button button-primary expanded">Take On Bet</a>
-					</div>
-				</div>
-			</footer>
-		</div>
-
-
-
 		<footer class="fixed-bottom">
 			<nav>
 				<ul class="row menu icon-top text-center fullWidth" role="navigation">
@@ -112,7 +76,7 @@
 						</a>
 					</li>
 					<li class="column small-3 fullWidth">
-						<a href="ledger.html" class="">
+						<a href="portfolio.html" class="">
 							<i class="fi-book"></i>
 							<span>Portfolio</span>
 						</a>
@@ -127,7 +91,6 @@
 			</nav>
 		</footer>
 		<script src="bower_components/jquery/dist/jquery.js"></script>
-		<script src="bower_components/jsanimatedmodal/animatedModal.js"></script>
 		<script src="bower_components/firebase/firebase.js"></script>
 		<script src="bower_components/what-input/what-input.js"></script>
 		<script src="bower_components/foundation-sites/dist/foundation.js"></script>

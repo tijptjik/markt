@@ -123,18 +123,17 @@
 			
 		// Loading Predictions
 
-		// var ref = new Firebase("https://dinosaur-facts.firebaseio.com/dinosaurs");
+		var billsFix = [];
 
 		ref.child('bets').on('child_removed', function(snapshot) {
-			console.log('jelp');
-			console.log(snapshot.key());
-
 		  $('[data-bid_id='+ snapshot.key() + ']').fadeOut('fast');
 		 });
 
 		ref.child('predictions').on("child_added", function(snapshot){
 			var obj = snapshot.val()
 			obj.prediction_id = snapshot.key()
+
+			
 			ref.child('bets').orderByChild("prediction").equalTo(obj.prediction_id)
 				.on("value",
 					function(snapshot){
@@ -181,6 +180,12 @@
 					            $pred.attr('data-' + key, obj[key]);
 					        }
 					    }
+						
+					    $('#predictions').find(["[data-prediction_id]"]).each(function(index, el) {
+					    	if ($(el).attr('data-prediction_id') ==  obj.prediction_id){$(el).remove()}
+					    	
+					    });
+					    $('#predictions').find('[data-prediction_id="' + obj.prediction_id + '"]').remove()
 						var pred = $prediction.prependTo('#predictions');
 						attachModals();
 						attachOpeningBids(pred);
@@ -297,7 +302,6 @@
 						e.preventDefault();
 						var obj = pred.data();
 						obj.side = $(e.target).attr('data-side')
-						console.log(obj);
 						$('#bet-slider').insertAfter($(e.target).parents('.prediction'))
 						$('#bet-slider').show();
 						for (key in obj) {
@@ -318,6 +322,7 @@
 			withUserName({}, e, function(options){
 				placeBet(options, e,
 					function(){
+
 						// window.location.href = "./portfolio.html";
 					});
 				});

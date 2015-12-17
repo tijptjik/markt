@@ -17,8 +17,8 @@ function timestamp(obj){
 
 /* Post New Prediction */
 
-function withUserName(e, callback){
-	getUsername({}, e, callback);
+function withUserName(options, e, callback){
+	getUsername(options, e, callback);
 }
 
 function postPrediction(options, e, callback){
@@ -36,7 +36,7 @@ function postPrediction(options, e, callback){
 	var newPredictionRef = ref.child("predictions").push(pred);
 	var predictionID = newPredictionRef.key();
 	
-	bet['amount'] = parseFloat($form.find('.slider-handle').attr('aria-valuenow'));
+	bet['amount'] = parseInt($form.find('.slider-handle').attr('aria-valuenow'));
 	bet['yes'] = true;
 	bet['prediction'] = predictionID;
 	bet['user_id'] = options.user.uid;
@@ -61,7 +61,7 @@ $(function(){
 	$('.predict .button.submit').on('click', function(e){
 		e.preventDefault();
 
-		withUserName(e, function(options){
+		withUserName({}, e, function(options){
 			postPrediction(options, e,
 				function(){
 					window.location.href = "./dashboard.html";

@@ -23,79 +23,7 @@
 					</header>
 					<article>
 						
-						<ul>
-							<li class="prediction row align-middle">
-								<div class="column fullWidth">
-									<span class="prediction-title">Prediction</span> | <span class="prediction-author">@tijptjik</span><br />
-									<span class="temp">Another passenger plane goes missing without a trace for at least 30 days.</span>
-								</div>
-								<div class="prediction-rate column small-4">
-									<div class="row align-spaced align-middle clearfix">
-										<div class="column">
-											<h4><i class="fi-dollar"></i>86</h4>
-											<a href="#animatedModal" class="button expanded primary tiny button-modal">YES</a>
-										</div>
-										<div class="column">
-											<h4><i class="fi-dollar"></i>14</h4>
-											<a href="#animatedModal" class="button expanded alert tiny button-modal">NO</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="prediction row align-middle">
-								<div class="column fullWidth">
-									<span class="prediction-title">Prediction</span> | <span class="prediction-author">@dickson</span><br />
-									<span class="temp">Donald Trump will run as an independent candidate in the presidential elections.</span>
-								</div>
-								<div class="prediction-rate column small-4">
-									<div class="row align-spaced align-middle clearfix">
-										<div class="column">
-											<h4><i class="fi-dollar"></i>56</h4>
-											<a href="#animatedModal" class="button expanded primary tiny button-modal">YES</a>
-										</div>
-										<div class="column">
-											<h4><i class="fi-dollar"></i>43</h4>
-											<a href="#animatedModal" class="button expanded alert tiny button-modal">NO</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="prediction row align-middle">
-								<div class="column fullWidth">
-									<span class="prediction-title">Prediction</span> | <span class="prediction-author">@bmmcord</span><br />
-									<span class="temp">Hillary Clinton will play the saxophone during her presidential campaign.</span>
-								</div>
-								<div class="prediction-rate column small-4">
-									<div class="row align-spaced align-middle clearfix">
-										<div class="column">
-											<h4><i class="fi-dollar"></i>5</h4>
-											<a href="#animatedModal" class="button expanded primary tiny button-modal">YES</a>
-										</div>
-										<div class="column">
-											<h4><i class="fi-dollar"></i>92</h4>
-											<a href="#animatedModal" class="button expanded alert tiny button-modal">NO</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="prediction row align-middle">
-								<div class="column fullWidth">
-									<span class="prediction-title">Prediction</span> | <span class="prediction-author">@szs</span><br />
-									<span class="temp">Hong Kong runs out of names for buildings.</span>
-								</div>
-								<div class="prediction-rate column small-4">
-									<div class="row align-spaced align-middle clearfix">
-										<div class="column">
-											<h4><i class="fi-dollar"></i>5</h4>
-											<a href="#animatedModal" class="button expanded primary tiny button-modal">YES</a>
-										</div>
-										<div class="column">
-											<h4><i class="fi-dollar"></i>92</h4>
-											<a href="#animatedModal" class="button expanded alert tiny button-modal">NO</a>
-										</div>
-									</div>
-								</div>
-							</li>
+						<ul id='predictions'>
 						</ul>
 						
 					</article>
@@ -104,36 +32,54 @@
 		</div>
 
 
-		<div id="animatedModal" class="text-center">
+		<div id="bet-slider" class="hide">
+			<div class="row align-center">
+				<div class="columns small-11">
+					<h2>Place Bet</h2>
+					<label>By moving the slider</label>
+					<p>I'll bet $<input id="sliderOutput1"> to receive $100 <i>if</i> this happens.</p>
+					<div class="small-12 columns">
+						<div class="slider" data-slider data-initial-start="50" data-options="step: 20;">
+							<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+							<span class="slider-fill" data-slider-fill></span>
+						</div>
+					</div>
+				</div>
+				<a href="" class="small-10 slider-submit submit button expanded">SUBMIT</a>
+			</div>
+		</div>
+
+		<div id="animatedModal" class="text-center" data-key="prediction_id">
+			<!-- <div id="matchbet"> -->
 			<!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
 			<div class="close-animatedModal right">
 				<i class="fi-x"></i>
 			</div>
 			<div class="modal-content">
 			<h2 class="header">Prediction</h2>
-			<p>Another passenger plane goes missing without a trace for at least 30 days.</p>
+			<p data-key="prediction">Another passenger plane goes missing without a trace for at least 30 days.</p>
 			<h4>Condition</h4>
-			<p>30 Days after the crash there are still newspapers which run articles wondering what happened to the crashed flight. Supposed parts don't don't dispute this claim. They need to have been verified to dispell the mystery.</p>
+			<p data-key="condition">30 Days after the crash there are still newspapers which run articles wondering what happened to the crashed flight. Supposed parts don't don't dispute this claim. They need to have been verified to dispell the mystery.</p>
 			<h4 class="summary">Contract</h4>
 			<div class="row summary align-center small-stack align-middle">
-				<div class="columns small-4 medium-6 large-expand"> <span>with</span><br> @tijptjik</div>
-				<div class="columns small-4 medium-6 large-expand"> <span>buy-in</span><br>$86</div>
+				<div class="columns small-4 medium-6 large-expand"> <span>with</span><br> <b data-key="user_name">@tijptjik</b></div>
+				<div class="columns small-4 medium-6 large-expand"> <span>buy-in</span><br>$<b data-key="amount">86</b></div>
 				<div class="columns small-4 medium-6 large-expand"> <span>pay out</span><br>$100</div>
-				<div class="columns small-12 medium-6 large-expand"> <span>your verdict</span><br> This <i>will</i> happen in 2016.</div>
+				<div class="columns small-12 medium-6 large-expand"> <span>your verdict</span><br> This <i data-key="verdict"> will</i> happen in 2016.</div>
 			</div>
 			</div>
 			<footer class="fixed-bottom">
 				<div class="row">
 					<div class="columns small-6">
-						<a href="" class="button expanded button-primary">Lower Bid</a>
+						<a href="" class="button lowerbid expanded button-primary">Lower Bid</a>
 					</div>
 					<div class="columns small-6">
-						<a href="" class="button button-primary expanded">Take On Bet</a>
+						<a href="" class="button entercontract button-primary expanded">Take On Bet</a>
 					</div>
 				</div>
 			</footer>
+			<!-- </div> -->
 		</div>
-
 
 
 		<footer class="fixed-bottom">
@@ -174,10 +120,252 @@
 		<script src="js/app.js"></script>
 		<script src="js/markt.js"></script>
 		<script type="text/javascript">
+			
+		// Loading Predictions
+
+		// var ref = new Firebase("https://dinosaur-facts.firebaseio.com/dinosaurs");
+
+		ref.child('bets').on('child_removed', function(snapshot) {
+			console.log('jelp');
+			console.log(snapshot.key());
+
+		  $('[data-bid_id='+ snapshot.key() + ']').fadeOut('fast');
+		 });
+
+		ref.child('predictions').on("child_added", function(snapshot){
+			var obj = snapshot.val()
+			obj.prediction_id = snapshot.key()
+			ref.child('bets').orderByChild("prediction").equalTo(obj.prediction_id)
+				.on("value",
+					function(snapshot){
+						var yes_bids = [];
+						var no_bids = [];
+						var bet = snapshot.val();
+						for (key in bet) {
+					        if (bet.hasOwnProperty(key)){
+					        	bet[key]['bid_id'] = key
+					            if (bet[key].yes){
+					            	yes_bids.push(bet[key])
+					            } else {
+									no_bids.push(bet[key])
+					            }
+					        }
+					    }
+						max_yes_bid = finder(Math.max, yes_bids, "amount");
+						max_no_bid = finder(Math.max, no_bids, "amount");
+						
+						if (max_yes_bid != null){
+							obj.price_no = 100 - max_yes_bid.amount
+							obj.user_name_yes = max_yes_bid.user_name
+							obj.user_id_yes = max_yes_bid.user_id
+							obj.bid_id = max_yes_bid.bid_id
+						} else {
+							obj.price_no = 0
+							obj.user_name_yes = 'nobody'
+							obj.user_id_yes = null
+						}
+						if (max_no_bid != null){
+							obj.price_yes = 100 - max_no_bid.amount
+							obj.user_name_no = max_no_bid.user_name
+							obj.user_id_no = max_no_bid.user_id
+							obj.bid_id = max_no_bid.bid_id
+						} else {
+							obj.price_yes = 0
+							obj.user_name_no = 'nobody'
+							obj.user_id_no = null
+						}
+						$prediction = $(predictionTemplate(obj));
+						$pred = $prediction.first();
+					    for (key in obj) {
+					        if (obj.hasOwnProperty(key)){
+					            $pred.attr('data-' + key, obj[key]);
+					        }
+					    }
+						var pred = $prediction.prependTo('#predictions');
+						attachModals();
+						attachOpeningBids(pred);
+					}
+				)
+			
+		})
+
+		function predictionTemplate(obj){
+			var html = '<li class="prediction row align-middle">' +
+							'<div class="column fullWidth">' +
+									'<span class="prediction-title">Prediction</span> | <span class="prediction-author">@' + obj.user_name + '</span><br />' +
+									'<span class="temp">' + obj.prediction + '</span>' +
+								'</div>' +
+								'<div class="prediction-rate column small-4">' +
+									'<div class="row align-spaced align-middle clearfix">' +
+										'<div class="column">' +
+											'<h4><i class="fi-dollar"></i>' + obj.price_yes + '</h4>' +
+											'<a href="#animatedModal" data-price="'+ obj.price_yes +'" data-side="yes" class="button expanded primary tiny button-modal">YES</a>' +
+										'</div>' +
+										'<div class="column">' +
+											'<h4><i class="fi-dollar"></i>' + obj.price_no + '</h4>' +
+											'<a href="#animatedModal" data-price="'+ obj.price_no +'" data-side="no" class="button expanded alert tiny button-modal">NO</a>' +
+										'</div>' +
+									'</div>' +
+								'</div>' +
+							'</li>'
+			return html
+		}
+
+		$('#predictions').on('click', '.button-modal', function(e){
+			var $animatedModal = $('#animatedModal');
+			var obj = $(e.target).parents('.prediction').data();
+			var side = $(e.target).data('side');
+
+		    obj.verdict =  side == 'yes' ? 'will' : 'will not'
+		    obj.amount = side == 'yes' ? obj.price_yes : obj.price_no  
+		    obj.user_name = side == 'yes'? obj.user_name_no : obj.user_name_yes
+
+			for (key in obj) {
+		        if (obj.hasOwnProperty(key)){
+		            $animatedModal.find('[data-key="'+ key +'"]').text(obj[key]);
+		            $animatedModal.attr('data-' + key, obj[key]);
+		        }
+		    }
+
+		})
+
+
+
+		// Place Bet
+		$('#animatedModal').on('click','.entercontract',function(e){
+			e.preventDefault();
+			var contract = $('#animatedModal').data();
+
+			withUserName(contract, e, function(contract){
+				enterContract(contract,
+					function(){
+						// window.location.href = "./portfolio.html";
+				});
+			});
+
+		})
+
+		function enterContract(obj, callback){
+			var user_to_delete_from = ''
+			var bid_to_delete = obj.bid_id
+
+			delete obj.amount;
+			delete obj.created_at;
+			delete obj.updated_at;
+			delete obj.key;
+			delete obj.user_name;
+			delete obj.user_id;
+			if (obj.verdict == 'will'){
+				obj['user_name_yes'] = obj.user.name;
+				obj['user_id_yes'] = obj.user.uid;
+				user_to_delete_from = obj['user_id_no']
+				obj['price_no'] = 100 - obj.price_yes;
+			} else {
+				obj['user_name_no'] = obj.user.name;
+				obj['user_id_no'] = obj.user.uid;
+				user_to_delete_from = obj['user_id_yes']
+				obj['price_yes'] = 100 - obj.price_no;
+			}
+			delete obj.verdict;
+			delete obj.user;
+			obj = timestamp(obj)
+			var contractID = ref.child('contracts').push(obj);
+			// Remove the bids from user 
+			ref.child('users/' + user_to_delete_from + '/bets/' + bid_to_delete).remove();
+			// Remove the bids from prediction
+			ref.child('bets/' + bid_to_delete).remove();
+			
+			// console.log(obj);
+			callback();
+		}
+
+
+		// Modals
+		function attachModals(){
 			$(".button-modal").animatedModal({
 				"animatedIn" : 'fadeInDownBig',
 				"animatedOut" : 'fadeOutUp',
 			});
+		};
+
+		function attachOpeningBids(pred){
+
+			$prediction.find('[data-price]').each(function(i,e){
+				if ($(e).attr('data-price') == 0){
+					var side = 
+					$(e).removeClass('button-modal').off().on('click',function(e){
+						e.preventDefault();
+						var obj = pred.data();
+						obj.side = $(e.target).attr('data-side')
+						console.log(obj);
+						$('#bet-slider').insertAfter($(e.target).parents('.prediction'))
+						$('#bet-slider').show();
+						for (key in obj) {
+					        if (obj.hasOwnProperty(key)){
+					            $('#bet-slider').attr('data-' + key, obj[key]);
+					        }
+					    }
+						// $(e.target)
+						// $("#matchbet").hide();
+						// $("#sliderbet").show();
+					})
+				}
+			});
+		}
+
+		$('body').on('click','.slider-submit',function(e){
+			e.preventDefault();
+			withUserName({}, e, function(options){
+				placeBet(options, e,
+					function(){
+						// window.location.href = "./portfolio.html";
+					});
+				});
+			})
+
+		function placeBet(options, e, callback){
+			var bet = $('#bet-slider').data();
+
+			bet['amount'] = parseInt($('.slider-handle').attr('aria-valuenow'));
+			bet['yes'] = bet.side == 'yes' ? false : true;
+			bet['prediction'] = bet.prediction_id;
+			bet['user_id'] = options.user.uid;
+			bet['user_name'] = options.user.name;
+
+			delete bet.bid_id
+			delete bet.condition
+			delete bet.prediction_id
+			delete bet.price_yes
+			delete bet.price_no
+			delete bet.user_name_no
+			delete bet.user_name_yes
+			delete bet.user_id_yes
+
+			bet = timestamp(bet);
+
+			var newBetRef = ref.child("bets").push(bet);
+
+			var betID = newBetRef.key();
+
+			ref.child('users/' + options.user.uid + '/bets/' + betID).set(bet);
+
+			callback();
+		}
+
+
+		function finder(cmp, arr, attr) {
+			if (arr.length == 0){
+				return null;
+			}
+		    var val = arr[0][attr];
+		    var elem = arr[0];
+		    for(var i=1;i<arr.length;i++) {
+		        if (cmp(val, arr[i][attr]) == arr[i][attr]){
+					elem = arr[i]
+				}
+		    }
+		    return elem;
+		}
 
 		</script>
 	</body>
